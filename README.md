@@ -26,7 +26,7 @@ To install Gauge, run the following command:
 pip install gauge-llm
 ```
 
-Before using Gauge, ensure to set your HUGGINGFACE_TOKEN environment variable, your REPLICATE_API_TOKEN, and import the `openai` library and set your `.api_key`.
+Before using Gauge, set your HUGGINGFACE_TOKEN environment variable, your REPLICATE_API_TOKEN, and import the `openai` library and set your `.api_key`.
 
 ```python
 import os
