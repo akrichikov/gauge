@@ -1,4 +1,6 @@
-# Gauge
+![Gauge Logo](./logo.png)
+
+# Gauge - LLM Evaluation
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.6%2B-blue)](https://www.python.org/downloads/)
