@@ -3,9 +3,10 @@ name = "gauge-llm"
 packages = [
     {include = "gauge"}
 ]
-version = "0.0.1"
+version = "0.0.11"
 description = "Qualitatively evaluate LLMs"
 authors = ["Killian Lucas", "Roger Hu"]
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
