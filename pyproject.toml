@@ -3,7 +3,7 @@ name = "gauge-llm"
 packages = [
     {include = "gauge"}
 ]
-version = "0.0.12"
+version = "0.0.121"
 description = "Qualitatively evaluate LLMs"
 authors = ["Killian Lucas", "Roger Hu"]
 readme = "README.md"
