@@ -20,7 +20,7 @@ Gauge uses a model-on-model approach to evaluate LLMs qualitatively. An advanced
 
 ## Installation
 
-![Gauge Screenshot](./images/screenshot.png)
+![Gauge Screenshot](./images/screenshot.jpeg)
 
 To install Gauge, run the following command:
 
