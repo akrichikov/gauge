@@ -6,31 +6,74 @@
 [![Python Version](https://img.shields.io/badge/python-3.6%2B-blue)](https://www.python.org/downloads/)
 [![PyPI version](https://badge.fury.io/py/gauge-llm.svg)](https://pypi.org/project/gauge-llm/)
 
-Gauge is a powerful and easy-to-use Python library for evaluating and comparing various language models (LLMs) using custom benchmarks. It allows you to try out different temperatures and prompts, and compare the results across multiple models. The library is designed to be extensible, with support for more models to be added in the future.
+Gauge is a Python library for evaluating and comparing language models (LLMs). Compare models based on their performance on complex and custom tasks, alongside numeric measurements like latency and cost.
+
+## How does it work?
+
+Gauge uses a model-on-model approach to evaluate LLMs qualitatively. An advanced arbiter model (GPT-4) evaluates the performance of smaller LLMs on specific tasks, providing a numeric score based on their output. This allows users to create custom benchmarks for their tasks and obtain qualitative evaluations of different LLMs. Gauge is useful for evaluating and ranking LLMs on a wide range of complex and subjective tasks, such as creative writing, staying in character, formatting outputs, extracting information, and translating text.
 
 ## Features
 
 - Evaluate and compare multiple LLMs using custom benchmarks
-- Supports different temperatures and prompts
-- Easy-to-use API for running and evaluating LLMs
-- Extensible architecture for adding more models in the future
+- Straightforward API for running and evaluating LLMs
+- Extensible architecture for including additional models
 
 ## Installation
 
-To install Gauge, simply run the following command:
+To install Gauge, run the following command:
 
 ```bash
-!pip install gauge-llm
+pip install gauge-llm
 ```
 
-## Usage
+Before using Gauge, ensure to set your HUGGINGFACE_TOKEN environment variable, your REPLICATE_API_TOKEN, and import the `openai` library and set your `.api_key`.
 
-Here's a quick example of how to use Gauge:
+```python
+import os
+import openai
+
+os.environ["HUGGINGFACE_TOKEN"] = "your_huggingface_token"
+os.environ["REPLICATE_API_TOKEN"] = "your_replicate_api_token"
+openai.api_key = "your_openai_api_key"
+```
+
+## Quick Start: Translation Evaluation
 
 ```python
 import gauge
-gauge.evaluate("Tell a story about a brave knight but stay in first person perspective the whole time.")
+gauge.evaluate("Translate the following English text to Spanish: 'The quick brown fox jumps over the lazy dog.'.")
 ```
+
+## Examples
+
+### Staying in Character: Detective's Monologue
+
+```python
+import gauge
+
+query = "Write a monologue for a detective character in a film noir setting."
+gauge.evaluate(query)
+```
+
+### Formatting Output: Recipe Conversion
+
+```python
+import gauge
+
+query = "Convert the following recipe into a shopping list: 2 cups flour, 1 cup sugar, 3 eggs, 1/2 cup milk, 1/4 cup butter."
+gauge.evaluate(query)
+```
+
+### Information Extraction: Historical Event
+
+```python
+import gauge
+
+query = "Extract the main points from the following paragraph: On July 20, 1969, American astronauts Neil Armstrong and Buzz Aldrin became the first humans to land on the Moon. Armstrong stepped onto the lunar surface and described the event as 'one small step for man, one giant leap for mankind.'"
+gauge.evaluate(query)
+```
+
+These examples will display a table with the results for each model, including their name, response, score, explanation, latency, and cost.
 
 ## API
 
@@ -57,23 +100,14 @@ Evaluates multiple LLMs using the given query and displays a table with the resu
 
 - `query`: The input query for the models.
 
-## Example
-
-Here's an example of how Gauge can be used to evaluate and compare multiple LLMs:
-
-```python
-import gauge
-
-query = "Tell a story about a brave knight but stay in first person perspective the whole time."
-gauge.evaluate(query)
-```
-
-This will display a table with the results for each model, including their name, response, score, explanation, latency, and cost.
-
 ## Contributing
 
-We welcome contributions to Gauge! If you'd like to add a new model or improve the existing code, please feel free to submit a pull request. If you encounter any issues or have suggestions, please open an issue on GitHub.
+Contributions to Gauge are welcome! If you'd like to add a new model or improve the existing code, please submit a pull request. If you encounter issues or have suggestions, open an issue on GitHub.
 
 ## License
 
 Gauge is released under the [MIT License](https://opensource.org/licenses/MIT).
+
+## Acknowledgements
+
+This project was created by Killian Lucas and Roger Hu during the AI Tinkerers Summer Hackathon, which took place on June 10th, 2023 in Seattle at Create 33. The event was sponsored by AWS Startups, Cohere, Madrona Venture Group, and supported by Pinecone, Weaviate, and Blueprint AI. Gauge made it to the semi-finals.
