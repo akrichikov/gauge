@@ -1,10 +1,12 @@
-![Gauge Logo](./logo.png)
+![Gauge Logo](./images/logo.png)
 
 # Gauge - LLM Evaluation
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.6%2B-blue)](https://www.python.org/downloads/)
 [![PyPI version](https://badge.fury.io/py/gauge-llm.svg)](https://pypi.org/project/gauge-llm/)
+
+![Gauge Screenshot](./images/screenshot.png)
 
 Gauge is a Python library for evaluating and comparing language models (LLMs). Compare models based on their performance on complex and custom tasks, alongside numeric measurements like latency and cost.
 
