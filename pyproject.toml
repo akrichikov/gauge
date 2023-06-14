@@ -1,5 +1,8 @@
 [tool.poetry]
 name = "gauge-llm"
+packages = [
+    {include = "gauge"}
+]
 version = "0.0.1"
 description = "Qualitatively evaluate LLMs"
 authors = ["Killian Lucas", "Roger Hu"]
