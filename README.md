@@ -6,8 +6,6 @@
 [![Python Version](https://img.shields.io/badge/python-3.6%2B-blue)](https://www.python.org/downloads/)
 [![PyPI version](https://badge.fury.io/py/gauge-llm.svg)](https://pypi.org/project/gauge-llm/)
 
-![Gauge Screenshot](./images/screenshot.png)
-
 Gauge is a Python library for evaluating and comparing language models (LLMs). Compare models based on their performance on complex and custom tasks, alongside numeric measurements like latency and cost.
 
 ## How does it work?
@@ -21,6 +19,8 @@ Gauge uses a model-on-model approach to evaluate LLMs qualitatively. An advanced
 - Extensible architecture for including additional models
 
 ## Installation
+
+![Gauge Screenshot](./images/screenshot.png)
 
 To install Gauge, run the following command:
 
