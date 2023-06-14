@@ -37,14 +37,16 @@ os.environ["REPLICATE_API_TOKEN"] = "your_replicate_api_token"
 openai.api_key = "your_openai_api_key"
 ```
 
-## Quick Start: Translation Evaluation
+## Examples
+
+### Information Extraction: Historical Event
 
 ```python
 import gauge
-gauge.evaluate("Translate the following English text to Spanish: 'The quick brown fox jumps over the lazy dog.'.")
-```
 
-## Examples
+query = "Extract the main points from the following paragraph: On July 20, 1969, American astronauts Neil Armstrong and Buzz Aldrin became the first humans to land on the Moon. Armstrong stepped onto the lunar surface and described the event as 'one small step for man, one giant leap for mankind.'"
+gauge.evaluate(query)
+```
 
 ### Staying in Character: Detective's Monologue
 
@@ -55,21 +57,21 @@ query = "Write a monologue for a detective character in a film noir setting."
 gauge.evaluate(query)
 ```
 
+### Translation: English to Spanish
+
+```python
+import gauge
+
+query = "Translate the following English text to Spanish: 'The quick brown fox jumps over the lazy dog.'"
+gauge.evaluate(query)
+```
+
 ### Formatting Output: Recipe Conversion
 
 ```python
 import gauge
 
 query = "Convert the following recipe into a shopping list: 2 cups flour, 1 cup sugar, 3 eggs, 1/2 cup milk, 1/4 cup butter."
-gauge.evaluate(query)
-```
-
-### Information Extraction: Historical Event
-
-```python
-import gauge
-
-query = "Extract the main points from the following paragraph: On July 20, 1969, American astronauts Neil Armstrong and Buzz Aldrin became the first humans to land on the Moon. Armstrong stepped onto the lunar surface and described the event as 'one small step for man, one giant leap for mankind.'"
 gauge.evaluate(query)
 ```
 
