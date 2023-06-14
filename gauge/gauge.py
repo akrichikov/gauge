@@ -45,10 +45,9 @@ class Gauge:
         {"type": "replicate", "name": "Vicuna", "id": "vicuna-13b:6282abe6a492de4145d7bb601023762212f9ddbbe78278bd6771c8b3b2f2a13b", "price_per_second": 0.0023},
         {"type": "replicate", "name": "OASST", "id": "oasst-sft-1-pythia-12b:28d1875590308642710f46489b97632c0df55adb5078d43064e1dc0bf68117c3", "price_per_second": 0.0023},
         {"type": "huggingface", "name": "Starcoder", "id": "bigcode/starcoder", "price_per_second": 0.0023},
-        #{"type": "huggingface", "name": "GPT-4-All", "id": "nomic-ai/gpt4all-j", "price_per_second": 0.0023},
-        #{"type": "huggingface", "name": "Bloom", "id": "elastic/distilbert-base-uncased-finetuned-conll03-english", "price_per_second": 0.0023},
-        
-        #{"name": "Replit Code", "id": "replit-code-v1-3b:83ac76c4dcf42ecb9a62dc97dd4049cf19007aeaa7571e3272c5d14530db0cf7", "price_per_second": 0.0023},
+        {"type": "huggingface", "name": "GPT-4-All", "id": "nomic-ai/gpt4all-j", "price_per_second": 0.0023},
+        {"type": "huggingface", "name": "Bloom", "id": "elastic/distilbert-base-uncased-finetuned-conll03-english", "price_per_second": 0.0023},
+        {"type": "replicate", "name": "Replit Code", "id": "replit-code-v1-3b:83ac76c4dcf42ecb9a62dc97dd4049cf19007aeaa7571e3272c5d14530db0cf7", "price_per_second": 0.0023},
     ]
 
     console = Console()
@@ -76,7 +75,7 @@ class Gauge:
 
                 elif model["type"] == "huggingface":
                     API_URL = f"https://api-inference.huggingface.co/models/{model['id']}"
-                    headers = {"Authorization": "Bearer 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"}
+                    headers = {"Authorization": f"Bearer {os.environ['HUGGINGFACE_TOKEN']}"}
 
                     response = requests.post(API_URL, headers=headers, json={"inputs": query})
                     full_output = response.json()[0]["generated_text"]
@@ -96,7 +95,7 @@ class Gauge:
     def evaluate(self, query):
         results_table = Table(show_header=True, header_style="bold magenta")
         results_table.add_column("Model")
-        results_table.add_column("Response") # Added column for Response
+        results_table.add_column("Response")
         results_table.add_column("Score")
         results_table.add_column("Explanation")
         results_table.add_column("Latency")
